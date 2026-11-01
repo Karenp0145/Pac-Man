@@ -1,6 +1,7 @@
 CC = gcc
 
 CFLAGS = -Wall -Wextra -g -Iinclude
+LDFLAGS = -lraylib -lopengl32 -lgdi32 -lwinmm
 
 SRC = src/main.c
 
@@ -11,7 +12,7 @@ NAME = pacman
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
