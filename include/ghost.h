@@ -8,13 +8,11 @@
 // pos: its current cell on the map
 // dir: the direction it is moving in
 // id: its number, used to choose its color when drawing
-// u_turns: number of u_turns in a row, to avoid going back and forth
 typedef struct
 {
     Position pos;
     Direction dir;
     int id;
-    int u_turns;
 }Ghost;
 
 // Creates count ghosts with malloc and places them in the starting area
