@@ -38,9 +38,12 @@ void map_init(Map *map)
     }
 }
 
-// bool map_is_wall(const Map *map, Position pos)
-// {
-//     if (pos !=map){
-//         return true;
-//     }
-// }
+bool map_is_wall(const Map *map, Position pos)
+{
+    if (pos.x < 0 || pos.x >= MAP_WIDTH || pos.y < 0 || pos.y >= MAP_HEIGHT ){
+        return true;
+    }
+
+
+    return (map-> cells[pos.y][pos.x] == '#');
+}
