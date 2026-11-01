@@ -4,7 +4,8 @@ CFLAGS = -Wall -Wextra -g -Iinclude
 LDFLAGS = -lraylib -lopengl32 -lgdi32 -lwinmm
 
 SRC = src/main.c \
-src/map.c
+src/map.c \
+src/ghost.c
 
 OBJ = $(SRC:.c=.o)
 
