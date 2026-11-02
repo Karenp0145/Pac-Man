@@ -6,7 +6,7 @@
 
 #define CELL_SIZE 40
 #define GHOST_COUNT 3
-#define GHOST_DELAY 30
+#define GHOST_DELAY 15
 
 //Draws the wall and dots of the map
 static void draw_map(const Map *map){
