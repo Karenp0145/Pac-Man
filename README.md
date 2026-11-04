@@ -3,10 +3,16 @@
 A simplified version of the arcade classic **Pac-Man**, written in C with **raylib**.
 Final project of the C module, made by **Karen** and **Etienne**.
 
+## Presentation
+
+[Slides of the presentation (Google Slides)](https://docs.google.com/presentation/d/1-qQucP7IMyMP0mmIJcvDZQKJJCQAoEcB/edit?usp=sharing)
+
 ## The game
 
 Guide Pac-Man through the maze and eat all the dots to win.
 Each dot is worth **10 points**. If a ghost catches Pac-Man, the game is over.
+
+> Current version: the maze and the ghosts are working; Pac-Man (player module) is not included yet.
 
 | Key | Action |
 |---|---|
