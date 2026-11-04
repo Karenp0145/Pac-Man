@@ -1,3 +1,5 @@
 *.o
 *.exe
 pacman
+*.a
+raylib-tmp/
