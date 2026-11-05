@@ -1,9 +1,21 @@
+/******************************************************************************/
+/*                                                     .##################.   */
+/*                                                     ##############   ###   */
+/*   player.c                                          ##############   ###   */
+/*                                                     ########'        ###   */
+/*   By: etienne <etienne@ecole-decode.fr>             ######'  .###.   ###   */
+/*                                                     ######   #####   ###   */
+/*   Created: 2026/11/04 11:26:43 by etienne           ##   #.  '###'   ###   */
+/*   Updated: 2026/11/04 12:43:13 by etienne           ##   ###.        ###   */
+/*                                                     '##################'   */
+/******************************************************************************/
+
 #include "player.h"
 #include "map.h"
 #include "raylib.h"
 #include <math.h>
 
-#define TILE_SIZE  24
+#define TILE_SIZE  44
 #define MOVE_DELAY 0.15f
 
 void player_init(Player *p, int x, int y)
@@ -29,13 +41,13 @@ static Position next_position(Position pos, Direction dir)
     return pos;
 }
 
-static int is_free(Position pos)
+static int is_free(Position pos, const Map *map)
 {
     if (pos.y < 0 || pos.y >= MAP_HEIGHT) return 0;
-    return map[pos.y][pos.x] != '#';
+    return map->cells[pos.y][pos.x] != '#';
 }
 
-void player_update(Player *p)
+void player_update(Player *p, const Map *map)
 {
     // Touches
     if (IsKeyDown(KEY_LEFT)  || IsKeyDown(KEY_A)) p->nextDir = DIR_LEFT;
@@ -48,12 +60,12 @@ void player_update(Player *p)
     if (p->timer < MOVE_DELAY) return;
     p->timer -= MOVE_DELAY;
 
-    if (p->nextDir != DIR_NONE && is_free(next_position(p->pos, p->nextDir)))
+    if (p->nextDir != DIR_NONE && is_free(next_position(p->pos, p->nextDir), map))
         p->dir = p->nextDir;
 
     if (p->dir != DIR_NONE) {
         Position next = next_position(p->pos, p->dir);
-        if (is_free(next))
+        if (is_free(next, map))
             p->pos = next;
     }
 }

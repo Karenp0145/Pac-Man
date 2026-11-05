@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "ghost.h"
-
+#include "player.h"
 #define CELL_SIZE 40
 #define GHOST_COUNT 3
 #define GHOST_DELAY 15
@@ -56,7 +56,7 @@ int main(void)
         return 1;
     }
 
-    int frame = 0;
+    int frame = 0;     Player player; player_init(&player, 1, 1);
 
     while(!WindowShouldClose()) 
     {
@@ -66,15 +66,14 @@ int main(void)
             ghosts_move(ghosts, GHOST_COUNT, &map);
         }
 
-        BeginDrawing();
-        ClearBackground(BLACK);
-        draw_map(&map);
+       player_update(&player, &map);
+
+     BeginDrawing();
+     ClearBackground(BLACK);        draw_map(&map);
         draw_ghosts(ghosts, GHOST_COUNT);
-        EndDrawing();
+        player_draw(&player);
+       EndDrawing();
+    
     }
-
-    ghosts_destroy(ghosts);
-    CloseWindow();
-
     return 0;
-}
+    }

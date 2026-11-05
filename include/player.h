@@ -2,7 +2,7 @@
 #define PLAYER_H
 
 #include "types.h"
-
+#include "map.h"
 typedef struct {
     Position  pos;
     Direction dir;
@@ -11,7 +11,7 @@ typedef struct {
 } Player;
 
 void player_init(Player *p, int x, int y);
-void player_update(Player *p);   // lit les touches + déplace
+void player_update(Player *p, const Map *map);  // lit les touches + déplace
 void player_draw(const Player *p);
 
 #endif

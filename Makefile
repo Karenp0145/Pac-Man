@@ -19,7 +19,8 @@ endif
 
 SRC = src/main.c \
       src/map.c \
-      src/ghost.c
+      src/ghost.c \
+	  src/player.c
 
 OBJ = $(SRC:.c=.o)
 
